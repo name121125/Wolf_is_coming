@@ -6,30 +6,35 @@ Public Class Form2
     Dim move_speed_left As Integer = -10
     Dim move_speed_right As Integer = 10
     Dim walls(66) As Label
-    Dim timer As Integer = 30
-    Dim dino_set As Boolean = False
-    Dim dino_pos As Point
-
+    Dim timer As Integer = 33
+    Dim dino_can_move As Boolean = False
+    Dim sub_pos As New Point
+    Dim dino_pos As New Point
+    Dim sub_can_move As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         For add_pic As Integer = 0 To 64
             walls(add_pic) = CType(Me.Controls("Label" & (add_pic + 1)), Label)
         Next
-        PictureBox.BringToFront()
-        Init_subject(PictureBox)
+        PictureBox0.BringToFront()
+        Init_subject(PictureBox0, PictureBox1)
 
 
 
     End Sub
-    Sub Init_subject(player As PictureBox)
+    Sub Init_subject(player As PictureBox, dino As PictureBox)
 
         player.Location = New Point(443, 80)
+        dino.Location = New Point(547, 40)
 
         player.BringToFront()
-        timer = 30
-        Label_timer.Text = timer
+        dino.BringToFront()
+        timer = 33
+        Label_timer.Text = 30
 
+        Timer1.Enabled = True
+        dino_move_timer.Enabled = False
 
         'back_music.URL = My.Application.Info.DirectoryPath & "\tsunami.mp3"
         'back_music.settings.setMode("loop", True)
@@ -41,26 +46,39 @@ Public Class Form2
 
     Sub dino_move()
 
-
+        sub_pos.X = PictureBox0.Left
+        sub_pos.Y = PictureBox0.Top
+        dino_pos.X = PictureBox1.Left
+        dino_pos.Y = PictureBox1.Top
+        If dino_pos.X > sub_pos.X + PictureBox0.Width Then
+            PictureBox1.Left += move_speed_left - 8
+        ElseIf dino_pos.X + PictureBox1.Width < sub_pos.X Then
+            PictureBox1.Left += move_speed_right - 8
+        End If
+        If sub_pos.Y > dino_pos.Y + PictureBox1.Height Then
+            PictureBox1.Top += move_speed_down - 8
+        ElseIf sub_pos.Y + PictureBox0.Height < dino_pos.Y Then
+            PictureBox1.Top += move_speed_up - 8
+        End If
 
     End Sub
     Sub Detect(newX As Integer, newY As Integer, dino_detect As Boolean, timer As Integer)
-        Dim playerBounds As New Rectangle(newX, newY, PictureBox.Width, PictureBox.Height)
+        Dim playerBounds As New Rectangle(newX, newY, PictureBox0.Width, PictureBox0.Height)
         For wall As Integer = 0 To 64
             If playerBounds.IntersectsWith(walls(wall).Bounds) Then
                 ' Player hits a wall, don't move
                 Select Case timer
                     Case 1 ' Moving left
-                        PictureBox.Left -= move_speed_left
+                        PictureBox0.Left -= move_speed_left
                         left_timer.Enabled = False
                     Case 2 ' Moving right
-                        PictureBox.Left -= move_speed_right
+                        PictureBox0.Left -= move_speed_right
                         right_timer.Enabled = False
                     Case 3 ' Moving down
-                        PictureBox.Top -= move_speed_down
+                        PictureBox0.Top -= move_speed_down
                         down_timer.Enabled = False
                     Case 4 ' Moving up
-                        PictureBox.Top -= move_speed_up
+                        PictureBox0.Top -= move_speed_up
                         up_timer.Enabled = False
                 End Select
                 Return
@@ -69,7 +87,7 @@ Public Class Form2
 
 
         ' Move the player to the new position
-        PictureBox.Location = New Point(newX, newY)
+        PictureBox0.Location = New Point(newX, newY)
         If dino_detect = True Then
             If playerBounds.IntersectsWith(PictureBox1.Bounds) Then
                 Dim player_report As Integer
@@ -78,12 +96,13 @@ Public Class Form2
                 right_timer.Enabled = False
                 up_timer.Enabled = False
                 down_timer.Enabled = False
+                sub_can_move = False
                 player_report = MsgBox("You hit the dino ! Do you need to restart ?", 53, "Times up")
                 If player_report = 4 Then
-                    Init_subject(PictureBox)
+                    Init_subject(PictureBox0, PictureBox1)
                 ElseIf player_report = 2 Then
                     Me.Close()
-                    back_music.close()
+
                 End If
             End If
         End If
@@ -96,12 +115,17 @@ Public Class Form2
             right_timer.Enabled = False
             up_timer.Enabled = False
             down_timer.Enabled = False
+            dino_move_timer.Enabled = False
+            sub_can_move = False
             player_report = MsgBox("you finish ! Go to next level ?", 68, "Finish")
             If player_report = 6 Then
-                Init_subject(PictureBox)
+                Form3.Show()
+                Hide()
+                Init_subject(PictureBox0, PictureBox1)
+                Timer1.Enabled = False
             ElseIf player_report = 7 Then
-                back_music.close()
-                Me.Close()
+                Form3.Show()
+                Hide()
                 Form1.Close()
 
 
@@ -111,34 +135,64 @@ Public Class Form2
     End Sub
 
 
-    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Dim newX As Integer = PictureBox.Left ' New X position of the player
-        Dim newY As Integer = PictureBox.Top ' New Y position of the player
+    Private Sub Form2_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Dim newX As Integer = PictureBox0.Left ' New X position of the player
+        Dim newY As Integer = PictureBox0.Top ' New Y position of the player
+
+        If sub_can_move = True Then
+
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
+                left_timer.Enabled = True
+            ElseIf e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
+                right_timer.Enabled = True
+            ElseIf e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
+                down_timer.Enabled = True
+            ElseIf e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
+                up_timer.Enabled = True
+            End If
 
 
-
-        If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
-            left_timer.Enabled = True
-        ElseIf e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
-            right_timer.Enabled = True
-        ElseIf e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
-            down_timer.Enabled = True
-        ElseIf e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
-            up_timer.Enabled = True
         End If
 
-        Timer1.Enabled = True
 
 
 
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        timer -= 1
-        Label_timer.Text = timer
+        If timer >= 30 Then
+            see_maze_time.Visible = True
+            see_maze_value.Visible = True
+            see_maze_time.Text = "觀察時間："
+            see_maze_value.Text = timer - 30
 
-        If timer = 25 Then
-            dino_set = True
+        End If
+
+        timer -= 1
+
+        If timer < 30 And timer >= 27 Then
+            Label_timer.Text = timer
+
+            sub_can_move = True
+            see_maze_value.Text = 3
+            see_maze_time.Text = "龍來了！"
+            see_maze_time.ForeColor = Color.Red
+            see_maze_value.ForeColor = Color.Red
+            see_maze_value.Text = timer - 26
+        End If
+
+
+
+
+        If timer < 27 Then
+            Label_timer.Text = timer
+            dino_can_move = True
+            dino_move_timer.Enabled = True
+            see_maze_time.Visible = False
+            see_maze_value.Visible = False
+
+            see_maze_value.ForeColor = Color.Black
+            see_maze_time.ForeColor = Color.Black
         End If
 
         If timer = 0 Then
@@ -148,36 +202,42 @@ Public Class Form2
             right_timer.Enabled = False
             up_timer.Enabled = False
             down_timer.Enabled = False
+            dino_can_move = False
+            sub_can_move = False
+            dino_move_timer.Enabled = False
             player_report = MsgBox("Times up ! Do you need to restart ?", 53, "Times up")
             If player_report = 4 Then
-                Init_subject(PictureBox)
+
+                Init_subject(PictureBox0, PictureBox1)
+
             ElseIf player_report = 2 Then
                 Me.Close()
-                back_music.close()
+
 
 
             End If
         End If
 
+
     End Sub
     Private Sub Left_Tick(sender As Object, e As EventArgs) Handles left_timer.Tick
-        PictureBox.Left += move_speed_left
-        Detect(PictureBox.Left, PictureBox.Top, dino_set, 1)
+        PictureBox0.Left += move_speed_left
+        Detect(PictureBox0.Left, PictureBox0.Top, dino_can_move, 1)
     End Sub
 
     Private Sub Right_Tick(sender As Object, e As EventArgs) Handles right_timer.Tick
-        PictureBox.Left += move_speed_right
-        Detect(PictureBox.Left, PictureBox.Top, dino_set, 2)
+        PictureBox0.Left += move_speed_right
+        Detect(PictureBox0.Left, PictureBox0.Top, dino_can_move, 2)
     End Sub
 
     Private Sub Down_Tick(sender As Object, e As EventArgs) Handles down_timer.Tick
-        PictureBox.Top += move_speed_down
-        Detect(PictureBox.Left, PictureBox.Top, dino_set, 3)
+        PictureBox0.Top += move_speed_down
+        Detect(PictureBox0.Left, PictureBox0.Top, dino_can_move, 3)
     End Sub
 
     Private Sub Up_Tick(sender As Object, e As EventArgs) Handles up_timer.Tick
-        PictureBox.Top += move_speed_up
-        Detect(PictureBox.Left, PictureBox.Top, dino_set, 4)
+        PictureBox0.Top += move_speed_up
+        Detect(PictureBox0.Left, PictureBox0.Top, dino_can_move, 4)
     End Sub
     Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
@@ -194,5 +254,8 @@ Public Class Form2
     Private Sub Form2_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         back_music.close()
         main.Close()
+    End Sub
+    Private Sub dino_move_timer_Tick(sender As Object, e As EventArgs) Handles dino_move_timer.Tick
+        dino_move()
     End Sub
 End Class

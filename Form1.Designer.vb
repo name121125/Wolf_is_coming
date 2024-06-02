@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -59,34 +58,27 @@ Partial Class Form1
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label_timer = New System.Windows.Forms.Label()
         Me.left_timer = New System.Windows.Forms.Timer(Me.components)
         Me.right_timer = New System.Windows.Forms.Timer(Me.components)
         Me.down_timer = New System.Windows.Forms.Timer(Me.components)
         Me.up_timer = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox = New System.Windows.Forms.PictureBox()
+        Me.dino_move_timer = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox0 = New System.Windows.Forms.PictureBox()
+        Me.Label_timer = New System.Windows.Forms.Label()
+        Me.see_maze_time = New System.Windows.Forms.Label()
+        Me.see_maze_value = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label1.Location = New System.Drawing.Point(418, 9)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 30)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "剩餘時間："
         '
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label2.Location = New System.Drawing.Point(93, 57)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(909, 10)
+        Me.Label2.Size = New System.Drawing.Size(909, 9)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Label2"
         '
@@ -394,17 +386,6 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 1000
         '
-        'Label_timer
-        '
-        Me.Label_timer.AutoSize = True
-        Me.Label_timer.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label_timer.Location = New System.Drawing.Point(555, 9)
-        Me.Label_timer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label_timer.Name = "Label_timer"
-        Me.Label_timer.Size = New System.Drawing.Size(47, 30)
-        Me.Label_timer.TabIndex = 39
-        Me.Label_timer.Text = "30 "
-        '
         'left_timer
         '
         Me.left_timer.Interval = 50
@@ -421,27 +402,75 @@ Partial Class Form1
         '
         Me.up_timer.Interval = 50
         '
-        'PictureBox
+        'dino_move_timer
         '
-        Me.PictureBox.Image = Global.Wolf_is_coming.My.Resources.Resources.subject
-        Me.PictureBox.Location = New System.Drawing.Point(27, 57)
-        Me.PictureBox.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(50, 50)
-        Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox.TabIndex = 1
-        Me.PictureBox.TabStop = False
+        Me.dino_move_timer.Interval = 50
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.螢幕擷取畫面_20221219_113852
-        Me.PictureBox1.Location = New System.Drawing.Point(27, 11)
+        Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.IMG_20240602_132631_264
+        Me.PictureBox1.Location = New System.Drawing.Point(27, 3)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(37, 36)
+        Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 40
         Me.PictureBox1.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label1.Location = New System.Drawing.Point(418, 9)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(133, 30)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "剩餘時間："
+        '
+        'PictureBox0
+        '
+        Me.PictureBox0.Image = Global.Wolf_is_coming.My.Resources.Resources.subject
+        Me.PictureBox0.Location = New System.Drawing.Point(29, 67)
+        Me.PictureBox0.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox0.Name = "PictureBox0"
+        Me.PictureBox0.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox0.TabIndex = 1
+        Me.PictureBox0.TabStop = False
+        '
+        'Label_timer
+        '
+        Me.Label_timer.AutoSize = True
+        Me.Label_timer.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label_timer.Location = New System.Drawing.Point(555, 9)
+        Me.Label_timer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label_timer.Name = "Label_timer"
+        Me.Label_timer.Size = New System.Drawing.Size(47, 30)
+        Me.Label_timer.TabIndex = 39
+        Me.Label_timer.Text = "30 "
+        '
+        'see_maze_time
+        '
+        Me.see_maze_time.AutoSize = True
+        Me.see_maze_time.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.see_maze_time.Location = New System.Drawing.Point(771, 9)
+        Me.see_maze_time.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.see_maze_time.Name = "see_maze_time"
+        Me.see_maze_time.Size = New System.Drawing.Size(133, 30)
+        Me.see_maze_time.TabIndex = 41
+        Me.see_maze_time.Text = "觀察時間："
+        '
+        'see_maze_value
+        '
+        Me.see_maze_value.AutoSize = True
+        Me.see_maze_value.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.see_maze_value.Location = New System.Drawing.Point(901, 9)
+        Me.see_maze_value.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.see_maze_value.Name = "see_maze_value"
+        Me.see_maze_value.Size = New System.Drawing.Size(27, 30)
+        Me.see_maze_value.TabIndex = 42
+        Me.see_maze_value.Text = "3"
         '
         'Form1
         '
@@ -449,7 +478,9 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1013, 587)
+        Me.ClientSize = New System.Drawing.Size(1035, 647)
+        Me.Controls.Add(Me.see_maze_value)
+        Me.Controls.Add(Me.see_maze_time)
         Me.Controls.Add(Me.Label_timer)
         Me.Controls.Add(Me.Label35)
         Me.Controls.Add(Me.Label33)
@@ -485,21 +516,18 @@ Partial Class Form1
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.PictureBox)
+        Me.Controls.Add(Me.PictureBox0)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label1 As Label
-    Friend WithEvents PictureBox As PictureBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -535,10 +563,15 @@ Partial Class Form1
     Friend WithEvents Label34 As Label
     Friend WithEvents Label35 As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label_timer As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents left_timer As Timer
     Friend WithEvents right_timer As Timer
     Friend WithEvents down_timer As Timer
     Friend WithEvents up_timer As Timer
+    Friend WithEvents dino_move_timer As Timer
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox0 As PictureBox
+    Friend WithEvents Label_timer As Label
+    Friend WithEvents see_maze_time As Label
+    Friend WithEvents see_maze_value As Label
 End Class

@@ -91,14 +91,17 @@ Partial Class Form2
         Me.Label62 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label67 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox = New System.Windows.Forms.PictureBox()
         Me.left_timer = New System.Windows.Forms.Timer(Me.components)
         Me.right_timer = New System.Windows.Forms.Timer(Me.components)
         Me.down_timer = New System.Windows.Forms.Timer(Me.components)
         Me.up_timer = New System.Windows.Forms.Timer(Me.components)
+        Me.dino_move_timer = New System.Windows.Forms.Timer(Me.components)
+        Me.see_maze_value = New System.Windows.Forms.Label()
+        Me.see_maze_time = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox0 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -650,26 +653,6 @@ Partial Class Form2
         Me.Label67.Text = "Finish"
         Me.Label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.螢幕擷取畫面_20221219_113852
-        Me.PictureBox1.Location = New System.Drawing.Point(353, 26)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(57, 51)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 70
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox
-        '
-        Me.PictureBox.Image = Global.Wolf_is_coming.My.Resources.Resources.subject
-        Me.PictureBox.Location = New System.Drawing.Point(443, 80)
-        Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(60, 60)
-        Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox.TabIndex = 67
-        Me.PictureBox.TabStop = False
-        '
         'left_timer
         '
         Me.left_timer.Interval = 50
@@ -686,17 +669,64 @@ Partial Class Form2
         '
         Me.up_timer.Interval = 50
         '
+        'dino_move_timer
+        '
+        '
+        'see_maze_value
+        '
+        Me.see_maze_value.AutoSize = True
+        Me.see_maze_value.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.see_maze_value.Location = New System.Drawing.Point(926, 9)
+        Me.see_maze_value.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.see_maze_value.Name = "see_maze_value"
+        Me.see_maze_value.Size = New System.Drawing.Size(27, 30)
+        Me.see_maze_value.TabIndex = 74
+        Me.see_maze_value.Text = "3"
+        '
+        'see_maze_time
+        '
+        Me.see_maze_time.AutoSize = True
+        Me.see_maze_time.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.see_maze_time.Location = New System.Drawing.Point(797, 9)
+        Me.see_maze_time.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.see_maze_time.Name = "see_maze_time"
+        Me.see_maze_time.Size = New System.Drawing.Size(133, 30)
+        Me.see_maze_time.TabIndex = 73
+        Me.see_maze_time.Text = "觀察時間："
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.IMG_20240602_132631_264
+        Me.PictureBox1.Location = New System.Drawing.Point(365, 27)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(57, 51)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 70
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox0
+        '
+        Me.PictureBox0.Image = Global.Wolf_is_coming.My.Resources.Resources.subject
+        Me.PictureBox0.Location = New System.Drawing.Point(443, 80)
+        Me.PictureBox0.Name = "PictureBox0"
+        Me.PictureBox0.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox0.TabIndex = 67
+        Me.PictureBox0.TabStop = False
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1035, 647)
+        Me.Controls.Add(Me.see_maze_value)
+        Me.Controls.Add(Me.see_maze_time)
         Me.Controls.Add(Me.Label67)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label_timer)
         Me.Controls.Add(Me.Label62)
-        Me.Controls.Add(Me.PictureBox)
+        Me.Controls.Add(Me.PictureBox0)
         Me.Controls.Add(Me.Label65)
         Me.Controls.Add(Me.Label64)
         Me.Controls.Add(Me.Label63)
@@ -764,7 +794,7 @@ Partial Class Form2
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -834,7 +864,7 @@ Partial Class Form2
     Friend WithEvents Label63 As Label
     Friend WithEvents Label64 As Label
     Friend WithEvents Label65 As Label
-    Friend WithEvents PictureBox As PictureBox
+    Friend WithEvents PictureBox0 As PictureBox
     Friend WithEvents Label_timer As Label
     Friend WithEvents Label62 As Label
     Friend WithEvents Timer1 As Timer
@@ -844,4 +874,7 @@ Partial Class Form2
     Friend WithEvents right_timer As Timer
     Friend WithEvents down_timer As Timer
     Friend WithEvents up_timer As Timer
+    Friend WithEvents dino_move_timer As Timer
+    Friend WithEvents see_maze_value As Label
+    Friend WithEvents see_maze_time As Label
 End Class

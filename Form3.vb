@@ -1,12 +1,12 @@
 ﻿Imports System.ComponentModel
-Imports System.Media
 
-Public Class Form1
+
+Public Class Form3
     Dim move_speed_up As Integer = -10
     Dim move_speed_down As Integer = 10
     Dim move_speed_left As Integer = -10
     Dim move_speed_right As Integer = 10
-    Dim walls(34) As Label
+    Dim walls(65) As Label
     Dim timer As Integer = 33
     Dim dino_can_move As Boolean = False
     Dim sub_pos As New Point
@@ -14,29 +14,29 @@ Public Class Form1
     Dim sub_can_move As Boolean = False
 
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        For add_pic As Integer = 0 To 33
+        For add_pic As Integer = 0 To 64
             walls(add_pic) = CType(Me.Controls("Label" & (add_pic + 1)), Label)
         Next
         PictureBox0.BringToFront()
         Init_subject(PictureBox0, PictureBox1)
 
+
+
     End Sub
     Sub Init_subject(player As PictureBox, dino As PictureBox)
 
-        player.Location = New Point(27, 67)
-        dino.Location = New Point(27, 3)
+        player.Location = New Point(427, 85)
+        dino.Location = New Point(493, 44)
         timer = 33
         player.BringToFront()
         dino.BringToFront()
+
         Label_timer.Text = 30
 
         Timer1.Enabled = True
-
-
-
-
+        dino_move_timer.Enabled = False
 
 
     End Sub
@@ -64,7 +64,7 @@ Public Class Form1
 
     Sub Detect(newX As Integer, newY As Integer, dino_detect As Boolean, timer As Integer)
         Dim playerBounds As New Rectangle(newX, newY, PictureBox0.Width, PictureBox0.Height)
-        For wall As Integer = 0 To 33
+        For wall As Integer = 0 To 64
             If playerBounds.IntersectsWith(walls(wall).Bounds) Then
                 ' Player hits a wall, don't move
                 Select Case timer
@@ -106,13 +106,11 @@ Public Class Form1
 
                 ElseIf player_report = 2 Then
                     Me.Close()
-
                 End If
             End If
         End If
 
-
-        If playerBounds.IntersectsWith(Label35.Bounds) Then
+        If playerBounds.IntersectsWith(Label66.Bounds) Then
             Dim player_report As Integer
             Timer1.Enabled = False
             left_timer.Enabled = False
@@ -122,42 +120,47 @@ Public Class Form1
             dino_move_timer.Enabled = False
             sub_can_move = False
 
-            player_report = MsgBox("you finish ! Go to next level ?", 68, "Finish")
+            player_report = MsgBox("you finish ! ", 68, "Finish")
             If player_report = 6 Then
-                Form2.Show()
+                finish_screen.Show()
                 Hide()
                 Init_subject(PictureBox0, PictureBox1)
-                Timer1.Enabled = False
+
             ElseIf player_report = 7 Then
                 main.Show()
-                Me.Close()
-
+                Hide()
             End If
         End If
 
     End Sub
 
 
-    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    Private Sub Form3_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
         Dim newX As Integer = PictureBox0.Left ' New X position of the player
         Dim newY As Integer = PictureBox0.Top ' New Y position of the player
 
         If sub_can_move = True Then
             If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
-                left_timer.Enabled = True '開啟往左的timer
+                left_timer.Enabled = True
             ElseIf e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
-                right_timer.Enabled = True '開啟往右的timer
+                right_timer.Enabled = True
             ElseIf e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
-                down_timer.Enabled = True '開啟往下的timer
+                down_timer.Enabled = True
             ElseIf e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
-                up_timer.Enabled = True '開啟往上的timer
+                up_timer.Enabled = True
             End If
         End If
+
+
+
+
 
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+
         If timer >= 30 Then
             see_maze_time.Visible = True
             see_maze_value.Visible = True
@@ -167,10 +170,12 @@ Public Class Form1
             see_maze_value.Text = timer - 30
 
         End If
+
         timer -= 1
 
         If timer < 30 And timer >= 27 Then
             Label_timer.Text = timer
+
             sub_can_move = True
             see_maze_value.Text = 3
             see_maze_time.Text = "龍來了！"
@@ -178,6 +183,9 @@ Public Class Form1
             see_maze_value.ForeColor = Color.Red
             see_maze_value.Text = timer - 26
         End If
+
+
+
 
         If timer < 27 Then
             Label_timer.Text = timer
@@ -203,8 +211,12 @@ Public Class Form1
             player_report = MsgBox("Times up ! Do you need to restart ?", 53, "Times up")
             If player_report = 4 Then
                 Init_subject(PictureBox0, PictureBox1)
+                timer = 35
             ElseIf player_report = 2 Then
                 Me.Close()
+
+
+
             End If
         End If
 
@@ -241,7 +253,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub Form3_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         back_music.close()
         main.Close()
     End Sub
@@ -250,4 +262,7 @@ Public Class Form1
         dino_move()
     End Sub
 
+
+
 End Class
+
