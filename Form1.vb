@@ -6,6 +6,7 @@ Public Class Form1
     Dim move_speed_down As Integer = 10
     Dim move_speed_left As Integer = -10
     Dim move_speed_right As Integer = 10
+    Dim dino_speed As Integer = 7
     Dim walls(34) As Label
     Dim timer As Integer = 33
     Dim dino_can_move As Boolean = False
@@ -25,7 +26,7 @@ Public Class Form1
     End Sub
     Sub Init_subject(player As PictureBox, dino As PictureBox)
 
-        player.Location = New Point(27, 67)
+        player.Location = New Point(27, 77)
         dino.Location = New Point(27, 3)
         timer = 33
         player.BringToFront()
@@ -33,6 +34,8 @@ Public Class Form1
         Label_timer.Text = 30
 
         Timer1.Enabled = True
+        dino_move_timer.Enabled = False
+        dino_speed = 7
 
 
 
@@ -40,26 +43,25 @@ Public Class Form1
 
 
     End Sub
-    Sub dino_move()
+    Sub dino_move_x()
         sub_pos.X = PictureBox0.Left
-        sub_pos.Y = PictureBox0.Top
+
         dino_pos.X = PictureBox1.Left
-        dino_pos.Y = PictureBox1.Top
+
         If dino_pos.X > sub_pos.X + PictureBox0.Width Then
-            PictureBox1.Left += move_speed_left - 8
+            PictureBox1.Left += move_speed_left + dino_speed
         ElseIf dino_pos.X + PictureBox1.Width < sub_pos.X Then
-            PictureBox1.Left += move_speed_right - 8
+            PictureBox1.Left += move_speed_right - dino_speed
         End If
+    End Sub
+    Sub dino_move_y()
+        sub_pos.Y = PictureBox0.Top
+        dino_pos.Y = PictureBox1.Top
         If sub_pos.Y > dino_pos.Y + PictureBox1.Height Then
-            PictureBox1.Top += move_speed_down - 8
+            PictureBox1.Top += move_speed_down - dino_speed
         ElseIf sub_pos.Y + PictureBox0.Height < dino_pos.Y Then
-            PictureBox1.Top += move_speed_up - 8
+            PictureBox1.Top += move_speed_up + dino_speed
         End If
-
-
-
-
-
     End Sub
 
     Sub Detect(newX As Integer, newY As Integer, dino_detect As Boolean, timer As Integer)
@@ -84,7 +86,9 @@ Public Class Form1
                 Return
             End If
         Next
-
+        If playerBounds.IntersectsWith(Label36.Bounds) Then
+            dino_speed = 4
+        End If
 
         ' Move the player to the new position
         PictureBox0.Location = New Point(newX, newY)
@@ -145,18 +149,26 @@ Public Class Form1
 
         If sub_can_move = True Then
             If e.KeyCode = Keys.A Or e.KeyCode = Keys.Left Then
-                left_timer.Enabled = True '開啟往左的timer
+                left_timer.Enabled = True
             ElseIf e.KeyCode = Keys.D Or e.KeyCode = Keys.Right Then
-                right_timer.Enabled = True '開啟往右的timer
+                right_timer.Enabled = True
             ElseIf e.KeyCode = Keys.S Or e.KeyCode = Keys.Down Then
-                down_timer.Enabled = True '開啟往下的timer
+                down_timer.Enabled = True
             ElseIf e.KeyCode = Keys.W Or e.KeyCode = Keys.Up Then
-                up_timer.Enabled = True '開啟往上的timer
+                up_timer.Enabled = True
             End If
         End If
 
+        If timer < 30 And timer >= 27 Then
+            Label_timer.Text = timer
+            sub_can_move = True
+            see_maze_value.Text = 3
+            see_maze_time.Text = "龍來了！"
+            see_maze_time.ForeColor = Color.Red
+            see_maze_value.ForeColor = Color.Red
+            see_maze_value.Text = timer - 26
+        End If
     End Sub
-
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If timer >= 30 Then
             see_maze_time.Visible = True
@@ -247,7 +259,11 @@ Public Class Form1
     End Sub
 
     Private Sub dino_move_timer_Tick(sender As Object, e As EventArgs) Handles dino_move_timer.Tick
-        dino_move()
+        dino_move_x()
+        dino_move_y()
     End Sub
 
+    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Timer1.Enabled = True
+    End Sub
 End Class

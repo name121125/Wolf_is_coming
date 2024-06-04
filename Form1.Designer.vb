@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form 覆寫 Dispose 以清除元件清單。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     '注意: 以下為 Windows Form 設計工具所需的程序
     '可以使用 Windows Form 設計工具進行修改。
     '請勿使用程式碼編輯器進行修改。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -69,6 +69,7 @@ Partial Class Form1
         Me.Label_timer = New System.Windows.Forms.Label()
         Me.see_maze_time = New System.Windows.Forms.Label()
         Me.see_maze_value = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -412,7 +413,7 @@ Partial Class Form1
         Me.PictureBox1.Location = New System.Drawing.Point(27, 3)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(75, 70)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 40
         Me.PictureBox1.TabStop = False
@@ -431,10 +432,10 @@ Partial Class Form1
         'PictureBox0
         '
         Me.PictureBox0.Image = Global.Wolf_is_coming.My.Resources.Resources.subject
-        Me.PictureBox0.Location = New System.Drawing.Point(29, 67)
+        Me.PictureBox0.Location = New System.Drawing.Point(27, 77)
         Me.PictureBox0.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox0.Name = "PictureBox0"
-        Me.PictureBox0.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox0.Size = New System.Drawing.Size(60, 60)
         Me.PictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox0.TabIndex = 1
         Me.PictureBox0.TabStop = False
@@ -472,6 +473,14 @@ Partial Class Form1
         Me.see_maze_value.TabIndex = 42
         Me.see_maze_value.Text = "3"
         '
+        'Label36
+        '
+        Me.Label36.Location = New System.Drawing.Point(834, 187)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(8, 47)
+        Me.Label36.TabIndex = 43
+        Me.Label36.Text = " "
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -479,6 +488,7 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1035, 647)
+        Me.Controls.Add(Me.Label36)
         Me.Controls.Add(Me.see_maze_value)
         Me.Controls.Add(Me.see_maze_time)
         Me.Controls.Add(Me.Label_timer)
@@ -574,4 +584,5 @@ Partial Class Form1
     Friend WithEvents Label_timer As Label
     Friend WithEvents see_maze_time As Label
     Friend WithEvents see_maze_value As Label
+    Friend WithEvents Label36 As Label
 End Class

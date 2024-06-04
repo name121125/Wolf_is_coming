@@ -34,8 +34,6 @@ Partial Class main
         Me.Change_music = New System.Windows.Forms.Button()
         Me.Label_music = New System.Windows.Forms.Label()
         Me.music_name = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Credits_btn = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -44,6 +42,8 @@ Partial Class main
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Credits_back_btn = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.volume_bar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +53,7 @@ Partial Class main
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("微軟正黑體", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label1.Location = New System.Drawing.Point(321, 35)
+        Me.Label1.Location = New System.Drawing.Point(322, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(171, 61)
         Me.Label1.TabIndex = 0
@@ -61,18 +61,18 @@ Partial Class main
         '
         'intro_button
         '
-        Me.intro_button.Font = New System.Drawing.Font("微軟正黑體", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.intro_button.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.intro_button.Location = New System.Drawing.Point(79, 434)
         Me.intro_button.Name = "intro_button"
         Me.intro_button.Size = New System.Drawing.Size(193, 57)
         Me.intro_button.TabIndex = 3
-        Me.intro_button.Text = "Game introduction"
+        Me.intro_button.Text = "遊戲說明"
         Me.intro_button.UseVisualStyleBackColor = True
         '
         'start_button
         '
         Me.start_button.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.start_button.Location = New System.Drawing.Point(310, 434)
+        Me.start_button.Location = New System.Drawing.Point(311, 434)
         Me.start_button.Name = "start_button"
         Me.start_button.Size = New System.Drawing.Size(193, 57)
         Me.start_button.TabIndex = 4
@@ -81,12 +81,12 @@ Partial Class main
         '
         'close_form
         '
-        Me.close_form.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.close_form.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.close_form.Location = New System.Drawing.Point(547, 434)
         Me.close_form.Name = "close_form"
         Me.close_form.Size = New System.Drawing.Size(193, 57)
         Me.close_form.TabIndex = 5
-        Me.close_form.Text = "End game"
+        Me.close_form.Text = "結束遊戲"
         Me.close_form.UseVisualStyleBackColor = True
         '
         'volume
@@ -105,7 +105,7 @@ Partial Class main
         'volume_bar
         '
         Me.volume_bar.Location = New System.Drawing.Point(383, 165)
-        Me.volume_bar.Margin = New System.Windows.Forms.Padding(2)
+        Me.volume_bar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.volume_bar.Maximum = 100
         Me.volume_bar.Name = "volume_bar"
         Me.volume_bar.Size = New System.Drawing.Size(261, 45)
@@ -129,7 +129,7 @@ Partial Class main
         '
         Me.setting_back_btn.Font = New System.Drawing.Font("微軟正黑體", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.setting_back_btn.Location = New System.Drawing.Point(600, 311)
-        Me.setting_back_btn.Margin = New System.Windows.Forms.Padding(2)
+        Me.setting_back_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.setting_back_btn.Name = "setting_back_btn"
         Me.setting_back_btn.Size = New System.Drawing.Size(162, 53)
         Me.setting_back_btn.TabIndex = 9
@@ -140,19 +140,19 @@ Partial Class main
         'setting_btn
         '
         Me.setting_btn.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.setting_btn.Location = New System.Drawing.Point(570, 35)
-        Me.setting_btn.Margin = New System.Windows.Forms.Padding(2)
+        Me.setting_btn.Location = New System.Drawing.Point(582, 36)
+        Me.setting_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.setting_btn.Name = "setting_btn"
-        Me.setting_btn.Size = New System.Drawing.Size(158, 48)
+        Me.setting_btn.Size = New System.Drawing.Size(158, 47)
         Me.setting_btn.TabIndex = 10
-        Me.setting_btn.Text = "settings"
+        Me.setting_btn.Text = "Settings"
         Me.setting_btn.UseVisualStyleBackColor = True
         '
         'Change_music
         '
         Me.Change_music.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Change_music.Location = New System.Drawing.Point(508, 239)
-        Me.Change_music.Margin = New System.Windows.Forms.Padding(2)
+        Me.Change_music.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Change_music.Name = "Change_music"
         Me.Change_music.Size = New System.Drawing.Size(160, 55)
         Me.Change_music.TabIndex = 11
@@ -183,37 +183,21 @@ Partial Class main
         Me.music_name.Text = "Default - Hold it down"
         Me.music_name.Visible = False
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Location = New System.Drawing.Point(547, 106)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(215, 308)
-        Me.PictureBox2.TabIndex = 2
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(79, 106)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(230, 309)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
         'Credits_btn
         '
         Me.Credits_btn.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Credits_btn.Location = New System.Drawing.Point(79, 36)
         Me.Credits_btn.Name = "Credits_btn"
-        Me.Credits_btn.Size = New System.Drawing.Size(127, 47)
+        Me.Credits_btn.Size = New System.Drawing.Size(156, 47)
         Me.Credits_btn.TabIndex = 14
-        Me.Credits_btn.Text = "Credits"
+        Me.Credits_btn.Text = "Credit"
         Me.Credits_btn.UseVisualStyleBackColor = True
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label2.Location = New System.Drawing.Point(341, 133)
+        Me.Label2.Location = New System.Drawing.Point(329, 133)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(157, 30)
         Me.Label2.TabIndex = 15
@@ -224,7 +208,7 @@ Partial Class main
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label3.Location = New System.Drawing.Point(200, 207)
+        Me.Label3.Location = New System.Drawing.Point(188, 207)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(438, 30)
         Me.Label3.TabIndex = 16
@@ -235,7 +219,7 @@ Partial Class main
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label4.Location = New System.Drawing.Point(293, 311)
+        Me.Label4.Location = New System.Drawing.Point(281, 311)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(253, 30)
         Me.Label4.TabIndex = 17
@@ -246,7 +230,7 @@ Partial Class main
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label5.Location = New System.Drawing.Point(285, 347)
+        Me.Label5.Location = New System.Drawing.Point(273, 347)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(269, 30)
         Me.Label5.TabIndex = 18
@@ -257,7 +241,7 @@ Partial Class main
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label6.Location = New System.Drawing.Point(328, 264)
+        Me.Label6.Location = New System.Drawing.Point(316, 264)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(182, 30)
         Me.Label6.TabIndex = 19
@@ -268,7 +252,7 @@ Partial Class main
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label7.Location = New System.Drawing.Point(293, 390)
+        Me.Label7.Location = New System.Drawing.Point(281, 390)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(253, 30)
         Me.Label7.TabIndex = 20
@@ -279,7 +263,7 @@ Partial Class main
         '
         Me.Credits_back_btn.Font = New System.Drawing.Font("微軟正黑體", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Credits_back_btn.Location = New System.Drawing.Point(578, 376)
-        Me.Credits_back_btn.Margin = New System.Windows.Forms.Padding(2)
+        Me.Credits_back_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Credits_back_btn.Name = "Credits_back_btn"
         Me.Credits_back_btn.Size = New System.Drawing.Size(162, 53)
         Me.Credits_back_btn.TabIndex = 21
@@ -287,10 +271,31 @@ Partial Class main
         Me.Credits_back_btn.UseVisualStyleBackColor = True
         Me.Credits_back_btn.Visible = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Wolf_is_coming.My.Resources.Resources.S__6455299
+        Me.PictureBox2.Location = New System.Drawing.Point(515, 141)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(266, 223)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 2
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.S__6455301_反_
+        Me.PictureBox1.Location = New System.Drawing.Point(79, 133)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(230, 274)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(841, 503)
         Me.Controls.Add(Me.Credits_back_btn)
         Me.Controls.Add(Me.Label7)
@@ -314,7 +319,7 @@ Partial Class main
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "main"
         Me.Text = "main"
         CType(Me.volume_bar, System.ComponentModel.ISupportInitialize).EndInit()

@@ -5,6 +5,7 @@ Public Class Form2
     Dim move_speed_down As Integer = 10
     Dim move_speed_left As Integer = -10
     Dim move_speed_right As Integer = 10
+    Dim dino_speed As Integer = 7
     Dim walls(66) As Label
     Dim timer As Integer = 33
     Dim dino_can_move As Boolean = False
@@ -12,7 +13,7 @@ Public Class Form2
     Dim dino_pos As New Point
     Dim sub_can_move As Boolean = False
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         For add_pic As Integer = 0 To 64
             walls(add_pic) = CType(Me.Controls("Label" & (add_pic + 1)), Label)
@@ -26,7 +27,7 @@ Public Class Form2
     Sub Init_subject(player As PictureBox, dino As PictureBox)
 
         player.Location = New Point(443, 80)
-        dino.Location = New Point(547, 40)
+        dino.Location = New Point(302, 0)
 
         player.BringToFront()
         dino.BringToFront()
@@ -35,6 +36,7 @@ Public Class Form2
 
         Timer1.Enabled = True
         dino_move_timer.Enabled = False
+        dino_speed = 7
 
         'back_music.URL = My.Application.Info.DirectoryPath & "\tsunami.mp3"
         'back_music.settings.setMode("loop", True)
@@ -51,14 +53,14 @@ Public Class Form2
         dino_pos.X = PictureBox1.Left
         dino_pos.Y = PictureBox1.Top
         If dino_pos.X > sub_pos.X + PictureBox0.Width Then
-            PictureBox1.Left += move_speed_left - 8
+            PictureBox1.Left += move_speed_left + dino_speed
         ElseIf dino_pos.X + PictureBox1.Width < sub_pos.X Then
-            PictureBox1.Left += move_speed_right - 8
+            PictureBox1.Left += move_speed_right - dino_speed
         End If
         If sub_pos.Y > dino_pos.Y + PictureBox1.Height Then
-            PictureBox1.Top += move_speed_down - 8
+            PictureBox1.Top += move_speed_down - dino_speed
         ElseIf sub_pos.Y + PictureBox0.Height < dino_pos.Y Then
-            PictureBox1.Top += move_speed_up - 8
+            PictureBox1.Top += move_speed_up + dino_speed
         End If
 
     End Sub
@@ -106,7 +108,9 @@ Public Class Form2
                 End If
             End If
         End If
-
+        If playerBounds.IntersectsWith(Label66.Bounds) Then
+            dino_speed = 5
+        End If
 
         If playerBounds.IntersectsWith(Label67.Bounds) Then
             Dim player_report As Integer

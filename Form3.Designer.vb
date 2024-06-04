@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form3
     Inherits System.Windows.Forms.Form
 
     'Form 覆寫 Dispose 以清除元件清單。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form3
     '注意: 以下為 Windows Form 設計工具所需的程序
     '可以使用 Windows Form 設計工具進行修改。
     '請勿使用程式碼編輯器進行修改。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -706,7 +706,7 @@ Partial Class Form3
         '
         Me.Label_timer.AutoSize = True
         Me.Label_timer.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label_timer.Location = New System.Drawing.Point(579, 11)
+        Me.Label_timer.Location = New System.Drawing.Point(518, 9)
         Me.Label_timer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label_timer.Name = "Label_timer"
         Me.Label_timer.Size = New System.Drawing.Size(47, 30)
@@ -717,7 +717,7 @@ Partial Class Form3
         '
         Me.Label47.AutoSize = True
         Me.Label47.Font = New System.Drawing.Font("微軟正黑體", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label47.Location = New System.Drawing.Point(455, 11)
+        Me.Label47.Location = New System.Drawing.Point(390, 9)
         Me.Label47.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(133, 30)
@@ -746,6 +746,7 @@ Partial Class Form3
         '
         'dino_move_timer
         '
+        Me.dino_move_timer.Interval = 50
         '
         'Label66
         '
@@ -761,9 +762,9 @@ Partial Class Form3
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.IMG_20240602_132631_264
-        Me.PictureBox1.Location = New System.Drawing.Point(493, 44)
+        Me.PictureBox1.Location = New System.Drawing.Point(575, 10)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(57, 51)
+        Me.PictureBox1.Size = New System.Drawing.Size(75, 70)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 80
         Me.PictureBox1.TabStop = False
@@ -782,6 +783,7 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1035, 647)
         Me.Controls.Add(Me.Label66)
         Me.Controls.Add(Me.PictureBox1)

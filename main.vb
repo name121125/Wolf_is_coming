@@ -34,6 +34,8 @@ Public Class main
         close_form.Visible = False
         setting_btn.Visible = False
         Credits_btn.Visible = False
+        PictureBox1.Visible = False
+        PictureBox2.Visible = False
         volume.Visible = True
         music_value.Visible = True
         volume_bar.Visible = True
@@ -57,6 +59,8 @@ Public Class main
         close_form.Visible = True
         Credits_btn.Visible = True
         setting_btn.Visible = True
+        PictureBox1.Visible = True
+        PictureBox2.Visible = True
     End Sub
 
     Private Sub volume_bar_Scroll(sender As Object, e As EventArgs) Handles volume_bar.Scroll
@@ -65,7 +69,6 @@ Public Class main
     End Sub
 
     Private Sub Change_music_Click(sender As Object, e As EventArgs) Handles Change_music.Click
-        'back_music.URL = 
         If music_name.Visible = True Then
             music_choose += 1
             Select Case music_choose
@@ -87,8 +90,11 @@ Public Class main
                 Case 5
                     back_music.URL = My.Application.Info.DirectoryPath & "\Let's Get It Started.mp3"
                     music_name.Text = "Let's Get It Started"
+                Case 6
+                    back_music.URL = My.Application.Info.DirectoryPath & "\伍佰 & China Blue 挪威的森林.mp3"
+                    music_name.Text = "500"
             End Select
-            If music_choose = 6 Then
+            If music_choose = 7 Then
                 music_choose = 0
                 back_music.URL = My.Application.Info.DirectoryPath & "\Default - Hold it down.mp3"
                 music_name.Text = "Default - Hold it down"
@@ -103,6 +109,8 @@ Public Class main
         close_form.Visible = False
         setting_btn.Visible = False
         Credits_btn.Visible = False
+        PictureBox1.Visible = False
+        PictureBox2.Visible = False
 
         Label2.Visible = True
         Label3.Visible = True
@@ -126,5 +134,7 @@ Public Class main
         start_button.Visible = True
         close_form.Visible = True
         Credits_btn.Visible = True
+        PictureBox1.Visible = True
+        PictureBox2.Visible = True
     End Sub
 End Class

@@ -6,6 +6,7 @@ Public Class Form3
     Dim move_speed_down As Integer = 10
     Dim move_speed_left As Integer = -10
     Dim move_speed_right As Integer = 10
+    Dim dino_speed As Integer = 7
     Dim walls(65) As Label
     Dim timer As Integer = 33
     Dim dino_can_move As Boolean = False
@@ -28,7 +29,7 @@ Public Class Form3
     Sub Init_subject(player As PictureBox, dino As PictureBox)
 
         player.Location = New Point(427, 85)
-        dino.Location = New Point(493, 44)
+        dino.Location = New Point(575, 10)
         timer = 33
         player.BringToFront()
         dino.BringToFront()
@@ -46,14 +47,14 @@ Public Class Form3
         dino_pos.X = PictureBox1.Left
         dino_pos.Y = PictureBox1.Top
         If dino_pos.X > sub_pos.X + PictureBox0.Width Then
-            PictureBox1.Left += move_speed_left - 8
+            PictureBox1.Left += move_speed_left + dino_speed
         ElseIf dino_pos.X + PictureBox1.Width < sub_pos.X Then
-            PictureBox1.Left += move_speed_right - 8
+            PictureBox1.Left += move_speed_right - dino_speed
         End If
         If sub_pos.Y > dino_pos.Y + PictureBox1.Height Then
-            PictureBox1.Top += move_speed_down - 8
+            PictureBox1.Top += move_speed_down - dino_speed
         ElseIf sub_pos.Y + PictureBox0.Height < dino_pos.Y Then
-            PictureBox1.Top += move_speed_up - 8
+            PictureBox1.Top += move_speed_up + dino_speed
         End If
 
 
@@ -125,10 +126,10 @@ Public Class Form3
                 finish_screen.Show()
                 Hide()
                 Init_subject(PictureBox0, PictureBox1)
-
+                Timer1.Enabled = False
             ElseIf player_report = 7 Then
-                main.Show()
-                Hide()
+                main.Close()
+
             End If
         End If
 

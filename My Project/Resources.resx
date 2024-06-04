@@ -121,13 +121,22 @@
   <data name="螢幕擷取畫面_20221219_113852" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\螢幕擷取畫面_20221219_113852.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="subject" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\subject.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="S__6455299" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\S__6455299.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="S__6455301" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\S__6455301.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IMG_20240602_132631_264" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG_20240602_132631_264.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMG_20240602_132631_264" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_20240602_132631_264.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="S__6455301(反)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\S__6455301(反).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

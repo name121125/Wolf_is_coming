@@ -36,7 +36,7 @@ Partial Class intro
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("微軟正黑體", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Label1.Location = New System.Drawing.Point(295, 26)
+        Me.Label1.Location = New System.Drawing.Point(309, 26)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(145, 40)
         Me.Label1.TabIndex = 0
@@ -60,7 +60,7 @@ Partial Class intro
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(420, 34)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "遊戲前五秒，玩家可觀察迷宮路線"
+        Me.Label3.Text = "遊戲前三秒，玩家可觀察迷宮路線"
         '
         'Label4
         '
@@ -70,7 +70,7 @@ Partial Class intro
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(587, 34)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "五秒後玩家將可以移動，30秒倒數也會自動開始"
+        Me.Label4.Text = "三秒後玩家將可以移動，30秒倒數也會自動開始"
         '
         'Label5
         '
@@ -116,6 +116,7 @@ Partial Class intro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label7)

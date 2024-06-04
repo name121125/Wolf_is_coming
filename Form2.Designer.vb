@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form 覆寫 Dispose 以清除元件清單。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form2
     '注意: 以下為 Windows Form 設計工具所需的程序
     '可以使用 Windows Form 設計工具進行修改。
     '請勿使用程式碼編輯器進行修改。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -100,6 +100,7 @@ Partial Class Form2
         Me.see_maze_time = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox0 = New System.Windows.Forms.PictureBox()
+        Me.Label66 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -671,6 +672,7 @@ Partial Class Form2
         '
         'dino_move_timer
         '
+        Me.dino_move_timer.Interval = 50
         '
         'see_maze_value
         '
@@ -697,9 +699,9 @@ Partial Class Form2
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Wolf_is_coming.My.Resources.Resources.IMG_20240602_132631_264
-        Me.PictureBox1.Location = New System.Drawing.Point(365, 27)
+        Me.PictureBox1.Location = New System.Drawing.Point(302, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(57, 51)
+        Me.PictureBox1.Size = New System.Drawing.Size(75, 70)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 70
         Me.PictureBox1.TabStop = False
@@ -709,10 +711,17 @@ Partial Class Form2
         Me.PictureBox0.Image = Global.Wolf_is_coming.My.Resources.Resources.subject
         Me.PictureBox0.Location = New System.Drawing.Point(443, 80)
         Me.PictureBox0.Name = "PictureBox0"
-        Me.PictureBox0.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox0.Size = New System.Drawing.Size(65, 65)
         Me.PictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox0.TabIndex = 67
         Me.PictureBox0.TabStop = False
+        '
+        'Label66
+        '
+        Me.Label66.Location = New System.Drawing.Point(451, 390)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(55, 10)
+        Me.Label66.TabIndex = 75
         '
         'Form2
         '
@@ -720,6 +729,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1035, 647)
+        Me.Controls.Add(Me.Label66)
         Me.Controls.Add(Me.see_maze_value)
         Me.Controls.Add(Me.see_maze_time)
         Me.Controls.Add(Me.Label67)
@@ -877,4 +887,5 @@ Partial Class Form2
     Friend WithEvents dino_move_timer As Timer
     Friend WithEvents see_maze_value As Label
     Friend WithEvents see_maze_time As Label
+    Friend WithEvents Label66 As Label
 End Class
