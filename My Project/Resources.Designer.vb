@@ -113,6 +113,46 @@ Namespace My.Resources
         '''<summary>
         '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         '''</summary>
+        Friend ReadOnly Property IMG_20240602_132631_264() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("IMG_20240602_132631_264", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        '''</summary>
+        Friend ReadOnly Property S__6455299() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("S__6455299", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        '''</summary>
+        Friend ReadOnly Property S__6455301() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("S__6455301", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        '''</summary>
+        Friend ReadOnly Property S__6455301_反_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("S__6455301(反)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        '''</summary>
         Friend ReadOnly Property subject() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("subject", resourceCulture)

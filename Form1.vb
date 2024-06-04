@@ -178,6 +178,15 @@ Public Class Form1
             see_maze_time.Text = "觀察時間："
             see_maze_value.Text = timer - 30
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If timer >= 30 Then
+            see_maze_time.Visible = True
+            see_maze_value.Visible = True
+            see_maze_time.ForeColor = Color.Black
+            see_maze_value.ForeColor = Color.Black
+            see_maze_time.Text = "觀察時間："
+            see_maze_value.Text = timer - 30
+
         End If
         timer -= 1
 
