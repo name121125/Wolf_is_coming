@@ -105,7 +105,7 @@ Partial Class main
         'volume_bar
         '
         Me.volume_bar.Location = New System.Drawing.Point(383, 165)
-        Me.volume_bar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.volume_bar.Margin = New System.Windows.Forms.Padding(2)
         Me.volume_bar.Maximum = 100
         Me.volume_bar.Name = "volume_bar"
         Me.volume_bar.Size = New System.Drawing.Size(261, 45)
@@ -129,7 +129,7 @@ Partial Class main
         '
         Me.setting_back_btn.Font = New System.Drawing.Font("微軟正黑體", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.setting_back_btn.Location = New System.Drawing.Point(600, 311)
-        Me.setting_back_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.setting_back_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.setting_back_btn.Name = "setting_back_btn"
         Me.setting_back_btn.Size = New System.Drawing.Size(162, 53)
         Me.setting_back_btn.TabIndex = 9
@@ -141,7 +141,7 @@ Partial Class main
         '
         Me.setting_btn.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.setting_btn.Location = New System.Drawing.Point(582, 36)
-        Me.setting_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.setting_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.setting_btn.Name = "setting_btn"
         Me.setting_btn.Size = New System.Drawing.Size(158, 47)
         Me.setting_btn.TabIndex = 10
@@ -152,7 +152,7 @@ Partial Class main
         '
         Me.Change_music.Font = New System.Drawing.Font("微軟正黑體", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Change_music.Location = New System.Drawing.Point(508, 239)
-        Me.Change_music.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Change_music.Margin = New System.Windows.Forms.Padding(2)
         Me.Change_music.Name = "Change_music"
         Me.Change_music.Size = New System.Drawing.Size(160, 55)
         Me.Change_music.TabIndex = 11
@@ -263,7 +263,7 @@ Partial Class main
         '
         Me.Credits_back_btn.Font = New System.Drawing.Font("微軟正黑體", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Credits_back_btn.Location = New System.Drawing.Point(578, 376)
-        Me.Credits_back_btn.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Credits_back_btn.Margin = New System.Windows.Forms.Padding(2)
         Me.Credits_back_btn.Name = "Credits_back_btn"
         Me.Credits_back_btn.Size = New System.Drawing.Size(162, 53)
         Me.Credits_back_btn.TabIndex = 21
@@ -319,7 +319,7 @@ Partial Class main
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "main"
         Me.Text = "main"
         CType(Me.volume_bar, System.ComponentModel.ISupportInitialize).EndInit()
